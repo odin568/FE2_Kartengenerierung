@@ -25,7 +25,7 @@ public class InputController {
     }
 
     @GetMapping("/generate")
-    public String generate(@RequestParam(value = "lat") String lat, @RequestParam(value = "long") String lng) {
+    public String generate(@RequestParam(value = "lat") String lat, @RequestParam(value = "lng") String lng) {
 
         // Simple parameter test if it is a valid double and if location is in Germany.
         // Germany: Latitude from 47.40724 to 54.9079 and longitude from 5.98815 to 14.98853.
