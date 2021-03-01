@@ -1,4 +1,4 @@
-# FE2_Zerlegung_ILSAnsbach
+# FE2_Kartengenerierung
 ## Motivation
 Eine einfache Möglichkeit eine Alarmdepesche auszudrucken mit der eingebauten FE2 Funktionalität. Kartendruck geht in der Regel nur mit AlarmMonitor 4, deswegen dieser Workaround um eine Karte zu generieren (evtl. werden es in Zukunft mehrere).
 ## Aktueller Stand
