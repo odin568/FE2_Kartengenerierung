@@ -35,3 +35,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### Prevent from check-in!!! ###
+src/main/resources/application-loc.properties
