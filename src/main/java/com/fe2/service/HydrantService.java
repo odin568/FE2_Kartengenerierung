@@ -33,7 +33,7 @@ public class HydrantService {
     public Optional<WasserkarteInfoResponse> getHydrants(String latitude, String longitude, int numItems, int range)
     {
         // Check if configured at all
-        if (configuration.getWasserkarteInfoToken() != null && !configuration.getWasserkarteInfoToken().isBlank())
+        if (configuration.getWasserkarteInfoToken() == null && configuration.getWasserkarteInfoToken().isBlank())
             return Optional.empty();
 
         String url = "https://api.wasserkarte.info/2.0/getSurroundingWaterSources/?source=alamosam";
