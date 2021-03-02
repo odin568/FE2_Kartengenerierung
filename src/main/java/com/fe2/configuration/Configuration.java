@@ -14,16 +14,16 @@ public class Configuration {
     private String gcp_apiKey;
 
     @Value("${gcp.signingKey:}")
-    private String gcp_signingKey;
+    private String gcp_signingKey; // Optional
 
-    @Value("${outputFile}")
-    private String outputFile;
+    @Value("${overview.outputFile}")
+    private String overview_outputFile;
 
-    @Value("${wk.token:null}")
-    private String wk_token;
+    @Value("${wk.token:}")
+    private String wk_token; // Optional
 
-    @Value("#{'${wk.customIcons}'.split(';')}")
-    private List<String> wk_customIcons;
+    @Value("#{'${wk.customIcons:}'.split(';')}")
+    private List<String> wk_customIcons; // Optional
 
     public String getGcpApiKey() {
         return gcp_apiKey;
@@ -33,8 +33,8 @@ public class Configuration {
         return gcp_signingKey;
     }
 
-    public String getOutputFile() {
-        return outputFile;
+    public String getOverviewOutputFile() {
+        return overview_outputFile;
     }
 
     public String getWasserkarteInfoToken() {

@@ -14,25 +14,7 @@ import java.nio.file.StandardCopyOption;
 @Service
 public class ImageDownloader {
 
-    @Autowired
-    private Configuration configuration;
-
-    public void downloadImage(URL uri) throws IOException {
-        download(uri, configuration.getOutputFile());
-    }
-
-    private void download(URL uri, String outputFile) throws IOException {
-        String format = "png"; //Default
-        String query = uri.getQuery().toLowerCase();
-        if (query.contains("&format=jpg"))
-            format = "jpg";
-        else if (query.contains("&format=gif"))
-            format = "gif";
-
-        if (!outputFile.endsWith("." + format)) {
-            throw new IllegalArgumentException("File ending does not match file type (" + format + ")!");
-        }
-
+    public void downloadImage(URL uri, String outputFile) throws IOException {
         try(InputStream in = uri.openStream()){
             Files.copy(in, Paths.get(outputFile), StandardCopyOption.REPLACE_EXISTING);
         }
