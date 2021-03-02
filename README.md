@@ -9,5 +9,24 @@ Das ganze ist noch work-in-progress. Aktueller Stand:
 * Speicherung der Karte an beliebigem Ort (kein Screenshot, direkter Download)
 ## Beispiel
 ![Alt text](/example.png?raw=true "Optional Title")
-## TODO
-* Konfiguration glatt ziehen und ausführbares Jar bauen, aktuell nur über IDE.
+## Konfiguratoin
+* Aktuell wird kein Artefakt gebaut, kann daher nur in IDE gestartet werden.
+* Einstellungen über application.properties
+```
+# MANDATORY: The Google Cloud API Key authorized to access 'Maps Static API'
+gcp.apiKey=123456
+
+# OPTIONAL: If configured in Cloud console, sign each request for improved security.
+gcp.signingKey=123546
+
+# MANDATORY: The target file location. Supported file endings: png,gif,jpg
+outputFile=C:\\temp\\image.png
+
+# OPTIONAL: The Wasserkarte.info access token
+wk.token=123456
+
+# OPTIONAL: Custom icons per sourceType of Wasserkarte.info. The icons need to be hosted somewhere and must be reachable from Internet!
+# If not defined for any or all sourceTypeIds, fallback to default icon.
+# Example: <id>=<url>;<id2>=<url2> etc.
+wk.customIcons=1=https://bit.ly/Hydrant16O.png;2=https://bit.ly/Hydrant16U.png;3=https://bit.ly/Hydrant16W.png
+```

@@ -34,7 +34,7 @@ public class UrlBuilder {
         url += UrlHelper.buildProperParameter("size", "640x640");
         url += UrlHelper.buildProperParameter("zoom", "16");
         url += UrlHelper.buildProperParameter("scale", "2");
-        url += UrlHelper.buildProperParameter("format", "png32");
+        url += UrlHelper.buildProperParameter("format", getFormatFromOutputFile());
         url += UrlHelper.buildProperParameter("maptype", "roadmap");
         url += UrlHelper.buildProperParameter("style", "feature:poi|visibility:off"); // Don't show POIs
         url += UrlHelper.buildProperParameter("style", "feature:transit|visibility:off"); // Don't show Transit symbols
@@ -50,6 +50,20 @@ public class UrlBuilder {
             return urlWithoutSignature;
 
         return signer.signUrl(urlWithoutSignature);
+    }
+
+    private String getFormatFromOutputFile() {
+        String fileEnding = configuration.getOutputFile().substring(configuration.getOutputFile().lastIndexOf('.')).toLowerCase();
+        switch (fileEnding) {
+            case ".png":
+                return "png32";
+            case ".jpg":
+                return "jpg";
+            case ".gif":
+                return "gif";
+            default:
+                throw new IllegalArgumentException("Invalid output file ending. Only gif,jpg,png supported!");
+        }
     }
 
     private String generateHydrantsAsMarkers(String lat, String lng, int numItems, int range) {
