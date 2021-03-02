@@ -8,7 +8,7 @@ Das ganze ist noch work-in-progress. Aktueller Stand:
 * Fragt Hydranten im Umkreis per API von Wasserkarte.Info ab und fügt sie als Marker in die Karte ein
 * Speicherung der Karte an beliebigem Ort (kein Screenshot, direkter Download)
 ## Beispiel
-![Alt text](/example.png?raw=true "Optional Title")
+![Alt text](screenshots/overview.png?raw=true "Generated overview")
 ## Konfiguratoin
 * Aktuell wird kein Artefakt gebaut, kann daher nur in IDE gestartet werden.
 * Einstellungen über application.properties
