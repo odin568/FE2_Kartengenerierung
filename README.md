@@ -12,7 +12,7 @@ Das Ganze ist noch work-in-progress. Aktueller Stand:
 * Speicherung der Karte an beliebigem Ort (kein Screenshot, direkter Download)
 ## Beispiel
 With custom icons
-![Alt text](screenshots/overview.png?raw=true "Generated overview with custom icons")
+![Alt text](screenshots/overview_customicons.png?raw=true "Generated overview with custom icons")
 Without custom icons (can also be a mixture)
 ![Alt text](screenshots/overview_noicons.png?raw=true "Generated overview without custom icons")
 ## Konfiguration
