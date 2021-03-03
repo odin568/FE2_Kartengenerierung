@@ -19,9 +19,6 @@ public class Configuration {
     @Value("${gcp.directions.apiKey:}")
     private String gcp_directions_apiKey; // Optional
 
-    @Value("${gcp.directions.signingKey:}")
-    private String gcp_directions_signingKey; // Optional
-
     @Value("${output.folder}")
     private String output_folder;
 
@@ -44,10 +41,6 @@ public class Configuration {
 
     public String getGcpDirectionsApiKey() {
         return gcp_directions_apiKey;
-    }
-
-    public String getGcpDirectionsSigningKey() {
-        return gcp_directions_signingKey;
     }
 
     public String getOutputFolder() {

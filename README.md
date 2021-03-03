@@ -22,14 +22,11 @@ Without custom icons (can also be a mixture)
 # MANDATORY: The Google Cloud API Key authorized to access 'Maps Static API'
 gcp.maps.apiKey=123456
 
-# OPTIONAL: If configured in Cloud console for given apiKey, sign each request for improved security.
+# OPTIONAL: If configured in Cloud console for static maps apiKey, sign each request for improved security.
 gcp.maps.signingKey=123546
 
 # OPTIONAL: The Google Cloud API Key authorized to access 'Directions API'
 gcp.directions.apiKey=123456
-
-# OPTIONAL: If configured in Cloud console for given apiKey, sign each request for improved security.
-gcp.directions.signingKey=123546
 
 # MANDATORY: The target folder
 output.folder=C:\\temp\\
