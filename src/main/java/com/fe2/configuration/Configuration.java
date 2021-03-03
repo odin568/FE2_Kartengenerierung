@@ -16,8 +16,11 @@ public class Configuration {
     @Value("${gcp.signingKey:}")
     private String gcp_signingKey; // Optional
 
-    @Value("${overview.outputFile}")
-    private String overview_outputFile;
+    @Value("${output.folder}")
+    private String output_folder;
+
+    @Value("${output.format}")
+    private String output_format;
 
     @Value("${wk.token:}")
     private String wk_token; // Optional
@@ -33,8 +36,12 @@ public class Configuration {
         return gcp_signingKey;
     }
 
-    public String getOverviewOutputFile() {
-        return overview_outputFile;
+    public String getOutputFolder() {
+        return output_folder;
+    }
+
+    public String getOutputFormat() {
+        return output_format;
     }
 
     public String getWasserkarteInfoToken() {

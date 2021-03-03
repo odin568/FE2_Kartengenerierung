@@ -30,17 +30,17 @@ public class HydrantService {
      * @param range
      * @return Optional response. Might be empty if no token present or on any other error.
      */
-    public Optional<WasserkarteInfoResponse> getHydrants(String latitude, String longitude, int numItems, int range)
+    public Optional<WasserkarteInfoResponse> getHydrants(double latitude, double longitude, int numItems, int range)
     {
         // Check if configured at all
-        if (configuration.getWasserkarteInfoToken() == null && configuration.getWasserkarteInfoToken().isBlank())
+        if (configuration.getWasserkarteInfoToken() == null || configuration.getWasserkarteInfoToken().isBlank())
             return Optional.empty();
 
         String url = "https://api.wasserkarte.info/2.0/getSurroundingWaterSources/?source=alamosam";
 
         url += UrlHelper.buildProperParameter("token", configuration.getWasserkarteInfoToken());
-        url += UrlHelper.buildProperParameter("lat", latitude);
-        url += UrlHelper.buildProperParameter("lng", longitude);
+        url += UrlHelper.buildProperParameter("lat", String.valueOf(latitude));
+        url += UrlHelper.buildProperParameter("lng", String.valueOf(longitude));
         url += UrlHelper.buildProperParameter("range", String.valueOf(range));
         url += UrlHelper.buildProperParameter("numItems", String.valueOf(numItems));
 
@@ -49,7 +49,7 @@ public class HydrantService {
             RestTemplate template = new RestTemplateBuilder().build();
             response = template.getForObject(url, WasserkarteInfoResponse.class);
             if (response == null)
-                throw new IllegalStateException("response is null");
+                throw new IllegalStateException("Response is null");
         }
         catch (Exception e) {
             System.out.println(e.getMessage());

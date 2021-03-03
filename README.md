@@ -12,9 +12,9 @@ Das Ganze ist noch work-in-progress. Aktueller Stand:
 * Speicherung der Karte an beliebigem Ort (kein Screenshot, direkter Download)
 ## Beispiel
 With custom icons
-![Alt text](screenshots/overview_customicons.png?raw=true "Generated overview with custom icons")
+![Alt text](screenshots/readme/overview_customicons.png?raw=true "Generated overview with custom icons")
 Without custom icons (can also be a mixture)
-![Alt text](screenshots/overview_noicons.png?raw=true "Generated overview without custom icons")
+![Alt text](screenshots/readme/overview_noicons.png?raw=true "Generated overview without custom icons")
 ## Konfiguration
 * Aktuell wird kein Artefakt gebaut, kann daher nur in IDE gestartet werden.
 * Einstellungen über application.properties
@@ -25,8 +25,11 @@ gcp.apiKey=123456
 # OPTIONAL: If configured in Cloud console, sign each request for improved security.
 gcp.signingKey=123546
 
-# MANDATORY: The target file location. Supported file endings: png,gif,jpg
-overview.outputFile=C:\\temp\\image.png
+# MANDATORY: The target folder
+output.folder=C:\\temp\\
+
+# MANDATORY: The output format. Supported: png8,png32,gif,jpg,jpg-baseline
+output.format=png32
 
 # OPTIONAL: The Wasserkarte.info access token
 wk.token=123456

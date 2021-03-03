@@ -26,14 +26,14 @@ public class UrlBuilder {
     @Autowired
     private Configuration configuration;
 
-    public URL generateOverviewUrl(final String lat, final String lng) throws MalformedURLException, NoSuchAlgorithmException, InvalidKeyException {
+    public URL generateOverviewUrl(final double lat, final double lng) throws MalformedURLException, NoSuchAlgorithmException, InvalidKeyException {
 
         String url = "https://maps.googleapis.com/maps/api/staticmap?center=" + lat + "," + lng;
 
         url += UrlHelper.buildProperParameter("size", "640x640");
         url += UrlHelper.buildProperParameter("zoom", "16");
         url += UrlHelper.buildProperParameter("scale", "2");
-        url += UrlHelper.buildProperParameter("format", getImageFormatFromOutputFileName(configuration.getOverviewOutputFile()));
+        url += UrlHelper.buildProperParameter("format", configuration.getOutputFormat());
         url += UrlHelper.buildProperParameter("maptype", "roadmap"); // Streets
         url += UrlHelper.buildProperParameter("style", "feature:poi|visibility:off"); // Don't show POIs
         url += UrlHelper.buildProperParameter("style", "feature:transit|visibility:off"); // Don't show Transit symbols
@@ -43,19 +43,7 @@ public class UrlBuilder {
         return generateFinalUrl(url);
     }
 
-    private String getImageFormatFromOutputFileName(final String outputFile)
-    {
-        String lowerOutputFile = outputFile.toLowerCase();
-        if (outputFile.endsWith(".png"))
-            return "png32";
-        if (outputFile.endsWith(".gif"))
-            return "gif";
-        if (outputFile.endsWith(".jpg"))
-            return "jpg";
-        throw new IllegalArgumentException("Outputfile has no proper ending. Supported are png,gif,jpg only!");
-    }
-
-    private String generateHydrantsAsMarkers(final String lat, final String lng, final int numItems, final int range)
+    private String generateHydrantsAsMarkers(final double lat, final double lng, final int numItems, final int range)
     {
         Optional<WasserkarteInfoResponse> hydrants = hydrantService.getHydrants(lat, lng, numItems, range);
 
