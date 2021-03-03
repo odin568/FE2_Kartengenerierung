@@ -20,7 +20,7 @@ public class UrlSigner {
 
     public boolean isSigningConfigured()
     {
-        return configuration.getGcpSigningKey() != null && !configuration.getGcpSigningKey().isBlank();
+        return configuration.getGcpMapsSigningKey() != null && !configuration.getGcpMapsSigningKey().isBlank();
     }
 
     public URL signUrl(URL url) throws InvalidKeyException, NoSuchAlgorithmException, MalformedURLException {
@@ -54,7 +54,7 @@ public class UrlSigner {
     }
 
     private byte[] getKeyBinary() {
-        String keyString = configuration.getGcpSigningKey();
+        String keyString = configuration.getGcpMapsSigningKey();
         // Convert the key from 'web safe' base 64 to binary
         keyString = keyString.replace('-', '+');
         keyString = keyString.replace('_', '/');

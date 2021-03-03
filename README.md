@@ -20,10 +20,16 @@ Without custom icons (can also be a mixture)
 * Einstellungen über application.properties
 ```
 # MANDATORY: The Google Cloud API Key authorized to access 'Maps Static API'
-gcp.apiKey=123456
+gcp.maps.apiKey=123456
 
-# OPTIONAL: If configured in Cloud console, sign each request for improved security.
-gcp.signingKey=123546
+# OPTIONAL: If configured in Cloud console for given apiKey, sign each request for improved security.
+gcp.maps.signingKey=123546
+
+# OPTIONAL: The Google Cloud API Key authorized to access 'Directions API'
+gcp.directions.apiKey=123456
+
+# OPTIONAL: If configured in Cloud console for given apiKey, sign each request for improved security.
+gcp.directions.signingKey=123546
 
 # MANDATORY: The target folder
 output.folder=C:\\temp\\
@@ -42,3 +48,4 @@ wk.customIcons=1=https://bit.ly/Hydrant16O.png;2=https://bit.ly/Hydrant16U.png;3
 ##TODO
 * Artefakt bauen
 * Evtl. als Docker container oder mit WinSW ServiceWrapper
+* Routen über directions api hinzufügen

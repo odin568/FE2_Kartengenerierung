@@ -10,11 +10,17 @@ import java.util.TreeMap;
 @Component
 public class Configuration {
 
-    @Value("${gcp.apiKey}")
-    private String gcp_apiKey;
+    @Value("${gcp.maps.apiKey}")
+    private String gcp_maps_apiKey;
 
-    @Value("${gcp.signingKey:}")
-    private String gcp_signingKey; // Optional
+    @Value("${gcp.maps.signingKey:}")
+    private String gcp_maps_signingKey; // Optional
+
+    @Value("${gcp.directions.apiKey:}")
+    private String gcp_directions_apiKey; // Optional
+
+    @Value("${gcp.directions.signingKey:}")
+    private String gcp_directions_signingKey; // Optional
 
     @Value("${output.folder}")
     private String output_folder;
@@ -28,12 +34,20 @@ public class Configuration {
     @Value("#{'${wk.customIcons:}'.split(';')}")
     private List<String> wk_customIcons; // Optional
 
-    public String getGcpApiKey() {
-        return gcp_apiKey;
+    public String getGcpMapsApiKey() {
+        return gcp_maps_apiKey;
     }
 
-    public String getGcpSigningKey() {
-        return gcp_signingKey;
+    public String getGcpMapsSigningKey() {
+        return gcp_maps_signingKey;
+    }
+
+    public String getGcpDirectionsApiKey() {
+        return gcp_directions_apiKey;
+    }
+
+    public String getGcpDirectionsSigningKey() {
+        return gcp_directions_signingKey;
     }
 
     public String getOutputFolder() {

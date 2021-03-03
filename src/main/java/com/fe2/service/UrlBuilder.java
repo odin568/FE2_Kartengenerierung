@@ -26,9 +26,11 @@ public class UrlBuilder {
     @Autowired
     private Configuration configuration;
 
+    private final String baseUrl = "https://maps.googleapis.com/maps/api/staticmap";
+
     public URL generateOverviewUrl(final double lat, final double lng) throws MalformedURLException, NoSuchAlgorithmException, InvalidKeyException {
 
-        String url = "https://maps.googleapis.com/maps/api/staticmap?center=" + lat + "," + lng;
+        String url = baseUrl + "?center=" + lat + "," + lng;
 
         url += UrlHelper.buildProperParameter("size", "640x640");
         url += UrlHelper.buildProperParameter("zoom", "16");
@@ -97,7 +99,7 @@ public class UrlBuilder {
 
     private URL generateFinalUrl(final String url) throws MalformedURLException, NoSuchAlgorithmException, InvalidKeyException
     {
-        String finalUrl = url + UrlHelper.buildProperParameter("key", configuration.getGcpApiKey());
+        String finalUrl = url + UrlHelper.buildProperParameter("key", configuration.getGcpMapsApiKey());
 
         URL urlWithoutSignature = new URL(finalUrl);
 

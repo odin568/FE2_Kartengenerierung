@@ -22,6 +22,8 @@ public class HydrantService {
     @Autowired
     private Configuration configuration;
 
+    private final String baseUrl = "https://api.wasserkarte.info/2.0/getSurroundingWaterSources/";
+
     /**
      * Get Hydrants from Wasserkarte.Info
      * @param latitude
@@ -36,7 +38,7 @@ public class HydrantService {
         if (configuration.getWasserkarteInfoToken() == null || configuration.getWasserkarteInfoToken().isBlank())
             return Optional.empty();
 
-        String url = "https://api.wasserkarte.info/2.0/getSurroundingWaterSources/?source=alamosam";
+        String url = baseUrl + "?source=alamosam";
 
         url += UrlHelper.buildProperParameter("token", configuration.getWasserkarteInfoToken());
         url += UrlHelper.buildProperParameter("lat", String.valueOf(latitude));
