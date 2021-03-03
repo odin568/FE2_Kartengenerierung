@@ -45,7 +45,7 @@ wk.token=123456
 # Example: <id>=<url>;<id2>=<url2> etc.
 wk.customIcons=1=https://bit.ly/Hydrant16O.png;2=https://bit.ly/Hydrant16U.png;3=https://bit.ly/Hydrant16W.png
 ```
-##TODO
+## TODO
 * Artefakt bauen
 * Evtl. als Docker container oder mit WinSW ServiceWrapper
 * Routen über directions api hinzufügen
