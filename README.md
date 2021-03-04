@@ -18,13 +18,13 @@ Aus diesem Grund ist hier ein Service entstanden, der im Alarmablauf aufgerufen 
 * Gibt die Karte als Response zurück.  
 * Speicherung der Karten an beliebigem Ort, optional abschaltbar.
 ## Beispiel
-Mit custom icons (kann auch gemischt sein)
+Mit custom icons (kann auch gemischt sein)  
 ![Alt text](screenshots/readme/overview.png?raw=true "Generated overview with custom icons")
-Ohne custom icons (kann auch gemischt sein)
+Ohne custom icons (kann auch gemischt sein)  
 ![Alt text](screenshots/readme/overview_noicons.png?raw=true "Generated overview without custom icons")
-Route
+Route  
 ![Alt text](screenshots/readme/route.png?raw=true "Generated route")
-Health check mit Debug Links
+Health check mit Debug Links  
 ![Alt text](screenshots/readme/health.png?raw=true "Health check")
 ## Konfiguration
 * Aktuell wird kein Artefakt gebaut, kann daher nur in IDE gestartet werden.
