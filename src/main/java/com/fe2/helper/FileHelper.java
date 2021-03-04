@@ -2,6 +2,8 @@ package com.fe2.helper;
 
 import org.springframework.http.MediaType;
 
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -34,5 +36,13 @@ public class FileHelper {
             return MediaType.IMAGE_JPEG;
 
         throw new IllegalArgumentException("Unsupported image format");
+    }
+
+    public static void writeToFile(byte[] image, Path targetPath) throws IOException {
+        if (Files.exists(targetPath)) {
+            Files.delete(targetPath);
+        }
+        Files.createFile(targetPath);
+        Files.write(targetPath, image);
     }
 }

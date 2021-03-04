@@ -65,7 +65,7 @@ public class HydrantService {
      * Get configured custom Icons. In addition checks if they are reachable.
      * @return Map of custom Icons per SourceTypeId.
      */
-    public Map<Long, String> getCustomIcons() {
+    public Map<Long, String> getVerifiedCustomIcons() {
 
         var configuredIcons = configuration.getWasserkarteInfoCustomIcons();
         List<Long> invalidUrls = new ArrayList<>();

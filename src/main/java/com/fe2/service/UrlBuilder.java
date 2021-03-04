@@ -97,7 +97,7 @@ public class UrlBuilder {
 
         // Generate Markers (preferred with custom icon)
         int countCustomIcons = 0;
-        var customIcons = hydrantService.getCustomIcons();
+        var customIcons = hydrantService.getVerifiedCustomIcons();
         for (var entry : hydrantsByType.entrySet()) {
             Long sourceType = entry.getKey();
             String marker;
