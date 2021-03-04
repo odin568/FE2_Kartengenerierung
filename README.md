@@ -24,6 +24,8 @@ Ohne custom icons (kann auch gemischt sein)
 ![Alt text](screenshots/readme/overview_noicons.png?raw=true "Generated overview without custom icons")
 Route
 ![Alt text](screenshots/readme/route.png?raw=true "Generated route")
+Health check mit Debug Links
+![Alt text](screenshots/readme/health.png?raw=true "Health check")
 ## Konfiguration
 * Aktuell wird kein Artefakt gebaut, kann daher nur in IDE gestartet werden.
 * Einstellungen über application.properties
