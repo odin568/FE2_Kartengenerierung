@@ -1,6 +1,8 @@
 # FE2_Kartengenerierung
 ## Motivation
-Eine einfache Möglichkeit eine Alarmdepesche auszudrucken mit der eingebauten FE2 Funktionalität. Kartendruck geht in der Regel nur mit AlarmMonitor 4, deswegen dieser Workaround um eine Karte zu generieren (evtl. werden es in Zukunft mehrere).
+Die Feuerwehr Baudenbach möchte eine Alarmdepesche ausdrucken. Bisher wird nur das Fax ausgedruckt.  
+FE2 bietet zwar die Möglichkeit eine Alarmdepesche auszudrucken, jedoch keine Kartenintegration. Hierfür wird der AlarmMonitor4 benötigt, der jedoch nicht die gewünschte Flexibilität bietet.  
+Aus diesem Grund ist hier ein Service entstanden, der im Alarmablauf aufgerufen werden kann. Die gespeicherten Karten können dann mit regulärer FE2 Funktionalität in die Alarmdepesche integriert und final ausgedruckt werden.
 ## Aktueller Stand
 * Applikation bietet REST Services an  
   GET: http://localhost:8080/overview?lat=49.123&lng=10.500)  
@@ -14,7 +16,7 @@ Eine einfache Möglichkeit eine Alarmdepesche auszudrucken mit der eingebauten F
   (API Key wird benötigt)
 * Speicherung der Karten an beliebigem Ort (kein Screenshot, direkter Download)
 ## Beispiel
-Mit custom icons
+Mit custom icons (kann auch gemischt sein)
 ![Alt text](screenshots/readme/overview_customicons.png?raw=true "Generated overview with custom icons")
 Ohne custom icons (kann auch gemischt sein)
 ![Alt text](screenshots/readme/overview_noicons.png?raw=true "Generated overview without custom icons")
