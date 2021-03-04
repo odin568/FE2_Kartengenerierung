@@ -18,11 +18,6 @@ public class UrlSigner {
     @Autowired
     private Configuration configuration;
 
-    public boolean isSigningConfigured()
-    {
-        return configuration.getGcpMapsSigningKey() != null && !configuration.getGcpMapsSigningKey().isBlank();
-    }
-
     public URL signUrl(URL url) throws InvalidKeyException, NoSuchAlgorithmException, MalformedURLException {
         String request = signRequest(url.getPath(), url.getQuery());
         return new URL(url.getProtocol() + "://" + url.getHost() + request);

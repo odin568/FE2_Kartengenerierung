@@ -2,7 +2,7 @@ package com.fe2.service;
 
 import com.fe2.configuration.Configuration;
 import com.fe2.helper.UrlHelper;
-import com.fe2.hydrants.WasserkarteInfoResponse;
+import com.fe2.hydrant.WasserkarteInfoResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;
@@ -34,8 +34,7 @@ public class HydrantService {
      */
     public Optional<WasserkarteInfoResponse> getHydrants(double latitude, double longitude, int numItems, int range)
     {
-        // Check if configured at all
-        if (configuration.getWasserkarteInfoToken() == null || configuration.getWasserkarteInfoToken().isBlank())
+        if (!configuration.isWasserkarteInfoApiEnabled())
             return Optional.empty();
 
         String url = baseUrl + "?source=alamosam";

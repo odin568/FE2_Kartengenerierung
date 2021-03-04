@@ -2,7 +2,7 @@ package com.fe2.service;
 
 import com.fe2.configuration.Configuration;
 import com.fe2.helper.UrlHelper;
-import com.fe2.hydrants.WasserkarteInfoResponse;
+import com.fe2.hydrant.WasserkarteInfoResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,9 +24,13 @@ public class UrlBuilder {
     private HydrantService hydrantService;
 
     @Autowired
+    private DestinationService destinationService;
+
+    @Autowired
     private Configuration configuration;
 
     private final String baseUrl = "https://maps.googleapis.com/maps/api/staticmap";
+
 
     public URL generateOverviewUrl(final double lat, final double lng) throws MalformedURLException, NoSuchAlgorithmException, InvalidKeyException {
 
@@ -39,10 +43,34 @@ public class UrlBuilder {
         url += UrlHelper.buildProperParameter("maptype", "roadmap"); // Streets
         url += UrlHelper.buildProperParameter("style", "feature:poi|visibility:off"); // Don't show POIs
         url += UrlHelper.buildProperParameter("style", "feature:transit|visibility:off"); // Don't show Transit symbols
-        url += UrlHelper.buildProperParameter("markers", "color:red|" + lat + "," + lng); // Central marker
-        url += generateHydrantsAsMarkers(lat, lng, 100, 500);
+        url += UrlHelper.buildProperParameter("markers", "color:red|" + lat + "," + lng); // Destination
+        url += generateHydrantsAsMarkers(lat, lng, 100, 250);
 
-        return generateFinalUrl(url);
+        Optional<String> points = destinationService.getEncodedPolylines(lat, lng);
+        if (points.isPresent())
+            url += UrlHelper.buildProperParameter("path", "color:0x5C5CFF|weight:5|enc:" + points.get());
+
+        return authorizeStaticMapsApiUrl(url);
+    }
+
+    public URL generateRouteUrl(final double lat, final double lng) throws MalformedURLException, InvalidKeyException, NoSuchAlgorithmException {
+
+        String url = baseUrl + "?size=640x640";
+
+        url += UrlHelper.buildProperParameter("size", "640x640");
+        url += UrlHelper.buildProperParameter("scale", "2");
+        url += UrlHelper.buildProperParameter("format", configuration.getOutputFormat());
+        url += UrlHelper.buildProperParameter("maptype", "roadmap"); // Streets
+        url += UrlHelper.buildProperParameter("style", "feature:poi|visibility:off"); // Don't show POIs
+        url += UrlHelper.buildProperParameter("style", "feature:transit|visibility:off"); // Don't show Transit symbols
+        url += UrlHelper.buildProperParameter("markers", "color:gray|size:tiny|" + configuration.getGcpDirectionsOriginLat() + "," + configuration.getGcpDirectionsOriginLng()); // Origin
+        url += UrlHelper.buildProperParameter("markers", "color:red|size:tiny|" + lat + "," + lng); // Destination
+
+        Optional<String> points = destinationService.getEncodedPolylines(lat, lng);
+        if (points.isPresent())
+            url += UrlHelper.buildProperParameter("path", "color:0x5C5CFF|weight:5|enc:" + points.get());
+
+        return authorizeStaticMapsApiUrl(url);
     }
 
     private String generateHydrantsAsMarkers(final double lat, final double lng, final int numItems, final int range)
@@ -97,13 +125,13 @@ public class UrlBuilder {
         return result.toString();
     }
 
-    private URL generateFinalUrl(final String url) throws MalformedURLException, NoSuchAlgorithmException, InvalidKeyException
+    private URL authorizeStaticMapsApiUrl(final String url) throws MalformedURLException, NoSuchAlgorithmException, InvalidKeyException
     {
         String finalUrl = url + UrlHelper.buildProperParameter("key", configuration.getGcpMapsApiKey());
 
         URL urlWithoutSignature = new URL(finalUrl);
 
-        if (!signer.isSigningConfigured())
+        if (!configuration.isSigningEnabled())
             return urlWithoutSignature;
 
         return signer.signUrl(urlWithoutSignature);

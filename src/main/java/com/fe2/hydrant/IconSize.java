@@ -1,5 +1,5 @@
 
-package com.fe2.hydrants;
+package com.fe2.hydrant;
 
 public class IconSize {
 
