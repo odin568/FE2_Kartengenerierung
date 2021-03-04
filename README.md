@@ -19,7 +19,7 @@ Aus diesem Grund ist hier ein Service entstanden, der im Alarmablauf aufgerufen 
 * Speicherung der Karten an beliebigem Ort, optional abschaltbar.
 ## Beispiel
 Mit custom icons (kann auch gemischt sein)
-![Alt text](screenshots/readme/overview_customicons.png?raw=true "Generated overview with custom icons")
+![Alt text](screenshots/readme/overview.png?raw=true "Generated overview with custom icons")
 Ohne custom icons (kann auch gemischt sein)
 ![Alt text](screenshots/readme/overview_noicons.png?raw=true "Generated overview without custom icons")
 Route
