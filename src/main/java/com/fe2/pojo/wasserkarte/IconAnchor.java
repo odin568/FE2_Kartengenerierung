@@ -1,5 +1,5 @@
 
-package com.fe2.hydrant;
+package com.fe2.pojo.wasserkarte;
 
 public class IconAnchor {
 

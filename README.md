@@ -4,9 +4,10 @@ Die Feuerwehr Baudenbach möchte eine Alarmdepesche ausdrucken. Bisher wird nur 
 FE2 bietet zwar die Möglichkeit eine Alarmdepesche auszudrucken, jedoch keine Kartenintegration. Hierfür wird der AlarmMonitor4 benötigt, der jedoch nicht die gewünschte Flexibilität bietet.  
 Aus diesem Grund ist hier ein Service entstanden, der im Alarmablauf aufgerufen werden kann. Die gespeicherten Karten können dann mit regulärer FE2 Funktionalität in die Alarmdepesche integriert und final ausgedruckt werden.
 ## Aktueller Stand
-* Applikation bietet REST Services an  
-  GET: http://localhost:8080/overview?lat=49.123&lng=10.500)  
-  GET: http://localhost:8080/route?lat=49.123&lng=10.500) 
+* Applikation bietet REST Services für verschiedene Karten und Dienste:  
+  Overview: http://localhost:8080/overview?lat=49.123&lng=10.500  
+  Route: http://localhost:8080/route?lat=49.123&lng=10.500  
+  Health: http://localhost:8080/health
 * Erstellt eine Übersichtskarte mithilfe von [Google Static Maps API](https://developers.google.com/maps/documentation/maps-static/overview) 
   (API Key und optionaler Signing Key werden benötigt)
 * Fragt Hydranten im Umkreis per API von Wasserkarte.info ab und fügt sie als Marker in die Karte ein (optional). 
@@ -14,7 +15,8 @@ Aus diesem Grund ist hier ein Service entstanden, der im Alarmablauf aufgerufen 
   Die Applikation prüft, ob die Icons erreichbar sind. Falls nicht: Fallback auf default icon.
 * Erstellt eine Routenkarte mithilfe von [Google Directions API](https://developers.google.com/maps/documentation/directions/overview)
   (API Key wird benötigt)
-* Speicherung der Karten an beliebigem Ort (kein Screenshot, direkter Download)
+* Gibt die Karte als Response zurück.  
+* Speicherung der Karten an beliebigem Ort, optional abschaltbar.
 ## Beispiel
 Mit custom icons (kann auch gemischt sein)
 ![Alt text](screenshots/readme/overview_customicons.png?raw=true "Generated overview with custom icons")
@@ -32,10 +34,8 @@ gcp.maps.apiKey=123456
 # OPTIONAL: If configured in Cloud console for static maps apiKey, sign each request for improved security.
 gcp.maps.signingKey=123546
 
-# OPTIONAL: The Google Cloud API Key authorized to access 'Directions API'
+# OPTIONAL: The Google Cloud API Key authorized to access 'Directions API' and the starting points for the route.
 gcp.directions.apiKey=123456
-
-# OPTIONAL: The Coordinates of the starting point of the route
 gcp.directions.origin.lat=49.123
 gcp.directions.origin.lng=10.123
 
@@ -54,5 +54,5 @@ wk.token=123456
 wk.customIcons=1=https://bit.ly/Hydrant16O.png;2=https://bit.ly/Hydrant16U.png;3=https://bit.ly/Hydrant16W.png
 ```
 ## TODO
-* Artefakt bauen
+* Artefakt bauen und releasen
 * Evtl. als Docker container oder mit WinSW ServiceWrapper
