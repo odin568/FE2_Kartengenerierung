@@ -1,7 +1,7 @@
-FROM gradle:6.8.3-jre15 AS build
-COPY --chown=gradle:gradle . /home/gradle/src
+FROM openjdk:15-alpine3.12 AS build
+COPY . /home/gradle/src
 WORKDIR /home/gradle/src
-RUN gradle build --no-daemon
+RUN ./gradlew build
 
 FROM openjdk:15-alpine3.12
 EXPOSE 8080
