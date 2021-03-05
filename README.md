@@ -1,3 +1,5 @@
+![Docker Automated build](https://img.shields.io/docker/automated/odin568/fe2_kartendruck) ![Docker Build Status](https://img.shields.io/docker/build/odin568/fe2_kartendruck)
+
 # FE2_Kartengenerierung
 ## Motivation
 Die Feuerwehr Baudenbach möchte eine Alarmdepesche ausdrucken. Bisher wird nur das Fax ausgedruckt.  
