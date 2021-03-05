@@ -1,4 +1,4 @@
-![Docker Automated build](https://img.shields.io/docker/automated/odin568/fe2_kartendruck) ![Docker Build Status](https://img.shields.io/docker/build/odin568/fe2_kartendruck)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/odin568/FE2_Kartengenerierung/Java%20CI%20with%20Gradle) ![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/odin568/fe2_kartengenerierung?style=plastic) ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/odin568/fe2_kartengenerierung)
 
 # FE2_Kartengenerierung
 ## Motivation
