@@ -46,7 +46,7 @@ gcp.directions.origin.lat=49.123
 gcp.directions.origin.lng=10.123
   
 # MANDATORY: The target folder
-output.folder=C:\\temp\\
+output.folder=C:\\temp\\maps\\
   
 # MANDATORY: The output format. Supported: png8,png32,gif,jpg,jpg-baseline
 output.format=png32
