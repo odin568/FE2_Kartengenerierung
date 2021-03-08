@@ -1,0 +1,5 @@
+Windows Service Wrapper 
+=======================
+Source:  https://github.com/winsw/winsw/releases
+Version: winsw-2.10.3
+Asset:   WinSW.NETCore31.x64.exe
