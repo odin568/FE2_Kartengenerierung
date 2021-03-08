@@ -4,7 +4,7 @@
 ## Motivation
 Die Feuerwehr Baudenbach möchte eine Alarmdepesche ausdrucken. Bisher wird nur das Fax ausgedruckt.  
 FE2 bietet zwar die Möglichkeit eine Alarmdepesche auszudrucken, jedoch keine Kartenintegration. Hierfür wird der AlarmMonitor4 benötigt, der jedoch nicht die gewünschte Flexibilität bietet.  
-Aus diesem Grund ist hier ein Service entstanden, der im Alarmablauf aufgerufen werden kann. Die gespeicherten Karten können dann mit regulärer FE2 Funktionalität in die Alarmdepesche integriert und final ausgedruckt werden.
+Aus diesem Grund ist hier ein Service entstanden, der im Alarmablauf (Plugin [URL öffnen](https://alamos-support.atlassian.net/wiki/spaces/documentation/pages/219480774/URL+ffnen)) aufgerufen werden kann. Die gespeicherten Karten können dann mit regulärer FE2 Funktionalität in die Alarmdepesche integriert und final ausgedruckt werden. 
 ## Features
 * Applikation bietet REST Services für verschiedene Karten und Dienste:  
   Overview: http://localhost:8080/overview?lat=49.123&lng=10.500  
@@ -18,11 +18,11 @@ Aus diesem Grund ist hier ein Service entstanden, der im Alarmablauf aufgerufen 
 * Erstellt eine Routenkarte mithilfe von [Google Directions API](https://developers.google.com/maps/documentation/directions/overview)
   (API Key wird benötigt)
 * Gibt die Karte als Response zurück.  
-* Speicherung der Karten an beliebigem Ort, optional abschaltbar.
+* Speicherung der Karten an beliebigem Ort (für Depeschendruck), optional abschaltbar (bspw. für Integration in andere Systeme).
 ## Beispiel
-Mit custom icons (kann auch gemischt sein)  
+Mit custom icons (kann auch gemischt werden)  
 ![Alt text](screenshots/readme/overview.png?raw=true "Generated overview with custom icons")
-Ohne custom icons (kann auch gemischt sein)  
+Ohne custom icons (kann auch gemischt werden)  
 ![Alt text](screenshots/readme/overview_noicons.png?raw=true "Generated overview without custom icons")
 Route  
 ![Alt text](screenshots/readme/route.png?raw=true "Generated route")
@@ -40,9 +40,9 @@ Java muss installiert sein (Path-Variable gesetzt)
 * Passe Konfiguration in *FE2_Kartengenerierung.xml* an (**env**)
 * ```./FE2_Kartengenerierung.bat install```
 ## Konfiguration
-Das Tool benötigt Konfiguration, insbesondere API-Keys. Desweiteren gibt es optionale Schalter. 
-Die gesamte Konfiguration erfolgt über Umgebungsvariablen, die entweder manuell oder über Docker/WinSW (s.o.) gesetzt werden. 
-Eine Auflistung aller Optionen:
+Das Tool benötigt Konfiguration, insbesondere API-Keys. Desweiteren gibt es optionale Schalter.  
+Die gesamte Konfiguration erfolgt über Umgebungsvariablen, die entweder manuell oder über Docker/WinSW (s.o.) gesetzt werden.  
+Eine Auflistung aller Optionen:  
 ```
 ###### MANDATORY: The Google Cloud API Key authorized to access 'Maps Static API'
 gcp.maps.apiKey=123456
