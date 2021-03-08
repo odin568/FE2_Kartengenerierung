@@ -60,5 +60,6 @@ wk.token=123456
 wk.customIcons=1=https://bit.ly/Hydrant16O.png;2=https://bit.ly/Hydrant16U.png;3=https://bit.ly/Hydrant16W.png
 ```
 ## TODO
+* https://downgit.github.io/#/home?url=https://github.com/odin568/FE2_Kartengenerierung/tree/dev/deploy/winsw&fileName=FE2_Kartengenerierung&rootDirectory=FE2_Kartengenerierung
 * Artefakt bauen und releasen
 * Evtl. als Docker container oder mit WinSW ServiceWrapper
