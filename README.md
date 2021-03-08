@@ -70,5 +70,5 @@ wk.token=123456
 wk.customIcons=1=https://bit.ly/Hydrant16O.png;2=https://bit.ly/Hydrant16U.png;3=https://bit.ly/Hydrant16W.png
 ```
 ## Links
-[DockerHub](https://hub.docker.com/r/odin568/fe2_kartengenerierung) 
-[Alamos Forum](https://board.alamos-gmbh.com/viewtopic.php?f=24&t=6445)
+* [DockerHub](https://hub.docker.com/r/odin568/fe2_kartengenerierung) 
+* [Alamos Forum](https://board.alamos-gmbh.com/viewtopic.php?f=24&t=6445)
